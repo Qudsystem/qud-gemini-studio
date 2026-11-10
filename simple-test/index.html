@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 AI Photo Studio - تجربة بسيطة</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* الهيدر المخصص */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        /* الإطار */
+        .app-container {
+            flex: 1;
+            position: relative;
+        }
+        
+        #aiFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+        }
+        
+        /* رسالة التحميل */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+        }
+        
+        .loading h2 {
+            margin-bottom: 10px;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* ملء الشاشة */
+        .fullscreen .header {
+            display: none;
+        }
+        
+        .fullscreen #aiFrame {
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">🎨 AI Photo Studio</div>
+        <div class="controls">
+            <button class="btn btn-secondary" onclick="location.reload()">🔄 تحديث</button>
+            <button class="btn btn-primary" onclick="toggleFullscreen()">⛶ ملء الشاشة</button>
+            <button class="btn btn-secondary" onclick="hideElements()">🧹 إخفاء العناصر</button>
+        </div>
+    </div>
+    
+    <div class="app-container">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <h2>جاري تحميل AI Studio...</h2>
+            <p>سيستغرق هذا بضع ثوانٍ</p>
+        </div>
+        
+        <iframe 
+            id="aiFrame"
+            src="https://aistudio.google.com/"
+            allow="camera; microphone; clipboard-write; clipboard-read"
+            onload="frameLoaded()">
+        </iframe>
+    </div>
+
+    <script>
+        // عند تحميل الإطار
+        function frameLoaded() {
+            document.getElementById('loading').style.display = 'none';
+            console.log('✅ تم تحميل AI Studio');
+            
+            // محاولة إخفاء العناصر
+            setTimeout(hideElements, 2000);
+        }
+        
+        // إخفاء العناصر غير المرغوبة
+        function hideElements() {
+            try {
+                const iframe = document.getElementById('aiFrame');
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                
+                if (iframeDoc) {
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        /* إخفاء عناصر Google */
+                        header, 
+                        [class*="header"],
+                        [class*="banner"],
+                        [class*="branding"],
+                        [class*="footer"],
+                        [aria-label*="Google"],
+                        div:contains("Powered by") {
+                            display: none !important;
+                            visibility: hidden !important;
+                            height: 0 !important;
+                        }
+                    `;
+                    iframeDoc.head.appendChild(style);
+                    console.log('✅ تم إخفاء العناصر');
+                }
+            } catch (e) {
+                console.log('⚠️ لا يمكن الوصول للإطار (CORS):', e.message);
+                alert('⚠️ بسبب حماية CORS، لا يمكن إخفاء العناصر تلقائياً.\n\nالحل: استخدم Chrome Extension أو Bookmarklet');
+            }
+        }
+        
+        // ملء الشاشة
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.body.classList.add('fullscreen');
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+                document.body.classList.remove('fullscreen');
+            }
+        }
+        
+        document.addEventListener('fullscreenchange', () => {
+            if (!document.fullscreenElement) {
+                document.body.classList.remove('fullscreen');
+            }
+        });
+    </script>
+</body>
+</html>

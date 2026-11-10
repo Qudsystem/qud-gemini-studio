@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 AI Studio Fullscreen - Bookmarklet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: #2d2d2d;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            color: #4cc9f0;
+            margin-bottom: 20px;
+        }
+
+        .bookmarklet {
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 30px 0;
+            cursor: grab;
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+            transition: transform 0.2s;
+            border: 2px solid #4cc9f0;
+        }
+
+        .bookmarklet:active {
+            cursor: grabbing;
+        }
+
+        .steps {
+            text-align: right;
+            background: #363636;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        code {
+            direction: ltr;
+            display: inline-block;
+            background: #000;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #00ff9d;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📱 AI Studio Full Screen</h1>
+        <p>الحل النهائي لإخفاء الفريمات السوداء وجعل التطبيق يملأ الشاشة بالكامل</p>
+
+        <a href="javascript:(function(){const s=document.createElement('style');s.textContent=`[_ngcontent-ng-c1193458499],header,footer,.ms-app-header,.ms-app-footer,.mat-toolbar,ms-app-header,ms-app-sidebar{display:none!important}body{margin:0!important;padding:0!important;overflow:hidden!important}iframe,ms-app-preview{position:fixed!important;top:0!important;left:0!important;width:100vw!important;height:100vh!important;z-index:999999!important;border:none!important;margin:0!important;padding:0!important;background:#fff!important}`;document.head.appendChild(s);const f=document.querySelector('iframe');if(f){f.style.position='fixed';f.style.zIndex='999999';f.style.width='100vw';f.style.height='100vh';}console.log('✅ Fullscreen Activated');})();"
+            class="bookmarklet">
+            📺 تفعيل وضع ملء الشاشة
+        </a>
+
+        <div class="steps">
+            <h3>📝 الخطوات:</h3>
+            <ol>
+                <li>اسحب الزر الأزرق 🟦 إلى شريط المفضلة (Bookmarks Bar).</li>
+                <li>افتح تطبيقك على AI Studio.</li>
+                <li>اضغط على الزر من المفضلة.</li>
+                <li>سيختفي كل شيء (الفريمات السوداء، الهيدر، الفوتر) ويبقى التطبيق فقط.</li>
+            </ol>
+            <p>ℹ️ هذا الكود يستهدف العنصر <code>[_ngcontent-ng-c1193458499]</code> تحديداً.</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 300px;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+
+        .status {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .status-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #10b981;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .status-text {
+            font-size: 13px;
+        }
+
+        .features {
+            margin-bottom: 15px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            width: 20px;
+            text-align: center;
+        }
+
+        .feature-text {
+            font-size: 12px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 11px;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">✨</div>
+        <div class="title">PixShop</div>
+        <div class="subtitle">تجربة نظيفة ومتكاملة لـ AI Studio</div>
+    </div>
+
+    <div class="status">
+        <div class="status-title">حالة الإضافة</div>
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span class="status-text">نشطة - تعمل تلقائياً</span>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <span class="feature-icon">🎬</span>
+            <span class="feature-text">شاشة تحميل أنيقة</span>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">✅</span>
+            <span class="feature-text">إخفاء الشريط الجانبي</span>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">✅</span>
+            <span class="feature-text">إخفاء الشريط العلوي</span>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">✅</span>
+            <span class="feature-text">إخفاء أزرار التحكم</span>
+        </div>
+        <div class="feature">
+            <span class="feature-icon">🖥️</span>
+            <span class="feature-text">توسيع المحتوى للشاشة الكاملة</span>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" id="open-studio-btn">
+        🚀 فتح PixShop
+    </button>
+
+    <div class="footer">
+        PixShop v2.0 | Made with ❤️
+    </div>
+
+    <script src="scripts/popup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{
+    "manifest_version": 3,
+    "name": "AI Studio Fullscreen App",
+    "version": "2.0",
+    "description": "Automatically hides Google UI and forces Apps to Fullscreen",
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "declarativeNetRequest",
+        "declarativeNetRequestFeedback"
+    ],
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "ruleset_1",
+                "enabled": true,
+                "path": "rules.json"
+            }
+        ]
+    },
+    "host_permissions": [
+        "*://aistudio.google.com/*",
+        "*://*.usercontent.goog/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icons/icon.svg"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://aistudio.google.com/*"
+            ],
+            "css": [
+                "styles/hide-elements.css"
+            ],
+            "js": [
+                "scripts/content.js"
+            ],
+            "run_at": "document_start"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "styles/*.css"
+            ],
+            "matches": [
+                "*://aistudio.google.com/*"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenRate Bookmarklet - تثبيت</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .bookmarklet-section {
+            background: #f5f7fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+        }
+
+        .bookmarklet-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: grab;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+        }
+
+        .bookmarklet-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .instructions {
+            margin-top: 30px;
+        }
+
+        .instructions h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .step:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            color: #856404;
+        }
+
+        .note strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🎨</div>
+            <h1 class="title">PenRate UI Cleaner</h1>
+            <p class="subtitle">Bookmarklet لإخفاء واجهة Google AI Studio</p>
+        </div>
+
+        <div class="bookmarklet-section">
+            <p style="margin-bottom: 15px; color: #666;">اسحب هذا الزر إلى شريط المفضلة:</p>
+            <a class="bookmarklet-btn"
+                href="javascript:(function(){const s=document.createElement('style');s.textContent='[class*=sidebar],[class*=toolbar],[class*=header],[class*=top-bar],[class*=topbar],[class*=nav-bar],[class*=app-bar],[class*=tab-bar],[class*=device],[class*=drawer],[class*=resizer],[class*=panel],[class*=footer],[class*=branding]{display:none!important;visibility:hidden!important;}[class*=main-content],[class*=preview-frame],main,[role=main]{width:100vw!important;height:100vh!important;position:fixed!important;top:0!important;left:0!important;z-index:9999!important;}body{margin:0!important;padding:0!important;}';document.head.appendChild(s);console.log('🎨 PenRate UI Cleaner: Active');alert('تم تفعيل PenRate UI Cleaner!');})();">
+                🎨 PenRate Cleaner
+            </a>
+        </div>
+
+        <div class="instructions">
+            <h3>📝 طريقة الاستخدام:</h3>
+
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-text">اسحب الزر الأزرق أعلاه وأفلته في شريط المفضلة (Bookmarks Bar)</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-text">افتح موقع Google AI Studio في متصفحك</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-text">انقر على الـ Bookmarklet في شريط المفضلة</span>
+            </div>
+
+            <div class="step">
+                <span class="step-number">4</span>
+                <span class="step-text">ستختفي جميع عناصر الواجهة غير المرغوبة! ✨</span>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>⚠️ ملاحظة:</strong>
+            يجب النقر على الـ Bookmarklet في كل مرة تفتح فيها الصفحة. للحصول على حل دائم، استخدم Chrome Extension.
+        </div>
+
+        <div class="code-block">
+            // الكود الكامل للـ Bookmarklet:
+            javascript:(function(){
+            const s=document.createElement('style');
+            s.textContent=`
+            [class*="sidebar"],[class*="toolbar"],[class*="header"],
+            [class*="top-bar"],[class*="topbar"],[class*="nav-bar"],
+            [class*="app-bar"],[class*="tab-bar"],[class*="device"],
+            [class*="drawer"],[class*="resizer"],[class*="panel"],
+            [class*="footer"],[class*="branding"]{
+            display:none!important;
+            visibility:hidden!important;
+            }
+            [class*="main-content"],[class*="preview-frame"],
+            main,[role="main"]{
+            width:100vw!important;
+            height:100vh!important;
+            position:fixed!important;
+            top:0!important;
+            left:0!important;
+            z-index:9999!important;
+            }
+            body{margin:0!important;padding:0!important;}
+            `;
+            document.head.appendChild(s);
+            console.log('🎨 PenRate UI Cleaner: Active');
+            })();
+        </div>
+    </div>
+</body>
+
+</html>

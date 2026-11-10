@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Photo Editor - تطبيق تحرير الصور بالذكاء الاصطناعي">
+    <meta name="theme-color" content="#667eea">
+    <title>✨ PixShop - AI Photo Studio</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- شاشة التحميل الفاخرة (Premium Loader) -->
+    <div id="penrate-loading-overlay">
+        <div class="brand">✨ PixShop</div>
+        <div class="spinner"></div>
+        <div class="loading-text">جاري التحميل...</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
+    </div>
+
+    <!-- الحاوية الرئيسية -->
+    <div class="app-container">
+        <!-- الهيدر المخصص -->
+        <header class="custom-header">
+            <div class="header-left">
+                <div class="logo">
+                    <span class="logo-icon">✨</span>
+                    <span class="logo-text">PixShop</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">متصل</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="btn btn-icon" onclick="refreshApp()" title="تحديث">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />
+                    </svg>
+                </button>
+                <button class="btn btn-icon" onclick="toggleFullScreen()" title="ملء الشاشة">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" />
+                    </svg>
+                </button>
+                <button class="btn btn-primary" onclick="toggleFullScreen()">
+                    <span>⛶</span> شاشة كاملة
+                </button>
+            </div>
+        </header>
+
+        <!-- إطار التطبيق الأصلي -->
+        <main class="app-main">
+            <iframe id="appFrame" class="app-frame"
+                src="https://aistudio.google.com/u/1/apps/bundled/pixshop?showPreview=true&showAssistant=true"
+                allow="camera; microphone; fullscreen; clipboard-read; clipboard-write" allowfullscreen loading="lazy">
+            </iframe>
+        </main>
+
+        <!-- الفوتر المخصص -->
+        <footer class="custom-footer">
+            <div class="footer-content">
+                <span class="footer-text">Powered by AI Technology</span>
+                <span class="footer-divider">•</span>
+                <span class="footer-version">v1.0</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- سكريبت التطبيق -->
+    <script src="scripts/app.js"></script>
+</body>
+
+</html>
